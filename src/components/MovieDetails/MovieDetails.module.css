@@ -11,12 +11,6 @@
   flex: 0 0 30%;
 }
 
-.moviePoster img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
 .movieInfo {
   flex: 0 0 70%;
   padding-left: 20px;

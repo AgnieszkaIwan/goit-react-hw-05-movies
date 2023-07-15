@@ -6,8 +6,6 @@ import {
   useLocation,
   Outlet,
   NavLink,
-  Route,
-  Routes,
 } from 'react-router-dom';
 import styles from './MovieDetails.module.css';
 
@@ -67,7 +65,7 @@ const MovieDetails = () => {
     <div>
       <header>
         <nav>
-          <Link to="/" className={styles.goBackLink}>
+          <Link to="/">
             <button className={styles.backButton}>&#8592; Go back</button>
           </Link>
         </nav>
