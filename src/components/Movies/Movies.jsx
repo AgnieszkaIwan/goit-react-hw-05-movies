@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import styles from './Movies.module.css';
 
 const Movies = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -25,9 +27,13 @@ const Movies = () => {
         onChange={e => setSearchQuery(e.target.value)}
       />
       <button onClick={handleSearch}>Search</button>
-      {searchResults.map(movie => (
-        <div key={movie.id}>{movie.title}</div>
-      ))}
+      <ul>
+        {searchResults.map(movie => (
+          <li key={movie.id}>
+            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

@@ -1,0 +1,12 @@
+.movieList {
+  padding: 10px;
+}
+
+.movieLink {
+  color: #333;
+  text-decoration: none;
+}
+
+.movieLink:hover {
+  text-decoration: underline;
+}
