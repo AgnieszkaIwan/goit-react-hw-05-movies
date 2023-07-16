@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {
-  Link,
-  useParams,
-  useLocation,
-  Outlet,
-  NavLink,
-} from 'react-router-dom';
+import { Link, useParams, Outlet, NavLink } from 'react-router-dom';
 import styles from './MovieDetails.module.css';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
-  const [setCast] = useState(null);
-  const [setReviews] = useState(null);
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -27,31 +19,7 @@ const MovieDetails = () => {
       }
     };
 
-    const fetchCast = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=c7e16231292b385d81e462e67776cee3`
-        );
-        setCast(response.data.cast);
-      } catch (error) {
-        console.error('Error fetching cast:', error);
-      }
-    };
-
-    const fetchReviews = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=c7e16231292b385d81e462e67776cee3`
-        );
-        setReviews(response.data.results);
-      } catch (error) {
-        console.error('Error fetching reviews:', error);
-      }
-    };
-
     fetchMovieDetails();
-    fetchCast();
-    fetchReviews();
   }, [movieId]);
 
   if (!movieDetails) {
