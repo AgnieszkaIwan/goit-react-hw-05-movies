@@ -11,10 +11,9 @@ import styles from './MovieDetails.module.css';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-  const location = useLocation();
   const [movieDetails, setMovieDetails] = useState(null);
-  const [cast, setCast] = useState(null);
-  const [reviews, setReviews] = useState(null);
+  const [setCast] = useState(null);
+  const [setReviews] = useState(null);
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
