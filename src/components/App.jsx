@@ -1,10 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './Header/Header';
 
 const Home = lazy(() => import('./Home/Home'));
@@ -16,7 +11,7 @@ const Reviews = lazy(() => import('./Reviews/Reviews'));
 export const App = () => {
   return (
     <div>
-      <Router>
+      <BrowserRouter basename="goit-react-hw-05-movies">
         <Header />
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
@@ -29,7 +24,7 @@ export const App = () => {
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </Suspense>
-      </Router>
+      </BrowserRouter>
     </div>
   );
 };
